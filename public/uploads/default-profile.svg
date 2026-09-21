@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="coin" cx="35%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#f5d580"/>
+      <stop offset="45%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#8a6d1f"/>
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="96" fill="url(#coin)" stroke="#3a2c0a" stroke-width="4"/>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#3a2c0a" stroke-width="2" opacity="0.5"/>
+  <text x="100" y="70" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#3a2c0a" letter-spacing="2">OF THE</text>
+  <path d="M65 105 L75 82 L88 100 L100 78 L112 100 L125 82 L135 105 L135 118 L65 118 Z" fill="#3a2c0a"/>
+  <circle cx="75" cy="82" r="4" fill="#3a2c0a"/>
+  <circle cx="100" cy="78" r="4" fill="#3a2c0a"/>
+  <circle cx="125" cy="82" r="4" fill="#3a2c0a"/>
+  <text x="100" y="138" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#3a2c0a" letter-spacing="2">KINGS</text>
+  <text x="100" y="155" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#3a2c0a" letter-spacing="3">SINCE 2015</text>
+</svg>

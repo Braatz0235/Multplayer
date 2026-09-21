@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" width="1600" height="500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0d0d"/>
+      <stop offset="55%" stop-color="#171310"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8a6d1f"/>
+      <stop offset="50%" stop-color="#f5d580"/>
+      <stop offset="100%" stop-color="#8a6d1f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="500" fill="url(#bg)"/>
+  <g opacity="0.08" stroke="#d4af37" stroke-width="1">
+    <circle cx="200" cy="120" r="140"/>
+    <circle cx="1400" cy="380" r="180"/>
+    <circle cx="800" cy="60" r="90"/>
+  </g>
+  <line x1="0" y1="250" x2="1600" y2="250" stroke="url(#gold)" stroke-width="1" opacity="0.3"/>
+  <text x="800" y="230" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="url(#gold)" letter-spacing="8">OF THE KINGS</text>
+  <text x="800" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#d4af37" letter-spacing="6" opacity="0.85">BARBEARIA · SINCE 2015</text>
+</svg>
