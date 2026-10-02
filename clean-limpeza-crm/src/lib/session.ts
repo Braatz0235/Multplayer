@@ -15,7 +15,7 @@ export async function getCurrentUser(): Promise<PublicUser | null> {
   const store = await cookies();
   const token = store.get(SESSION_COOKIE)?.value;
   if (!token) return null;
-  const uid = verifySession(token);
+  const uid = await verifySession(token);
   if (!uid) return null;
   const db = await readDb();
   const user = db.users.find((u) => u.id === uid && u.active);
@@ -42,7 +42,7 @@ export async function authorize(roles?: Role[]): Promise<PublicUser> {
 
 export async function startSession(userId: string) {
   const store = await cookies();
-  store.set(SESSION_COOKIE, signSession(userId), {
+  store.set(SESSION_COOKIE, await signSession(userId), {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",

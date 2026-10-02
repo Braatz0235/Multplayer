@@ -53,7 +53,10 @@ clientes e visitas de exemplo (os usuários de teste usam a mesma senha que voc�
 
 ## Colocar no ar
 
-Veja o passo a passo em **[DEPLOY.md](DEPLOY.md)** (Render, Railway, VPS com Docker).
+Veja o passo a passo em **[DEPLOY.md](DEPLOY.md)** (Vercel + Neon, Render, Railway, VPS com Docker).
+
+**Vercel:** importe o repositório, conecte um banco em *Storage → Neon Postgres*
+e faça *Redeploy*. Os dados ficam no Postgres (a Vercel não permite gravar em disco).
 Resumo com Docker:
 
 ```bash
@@ -64,15 +67,15 @@ docker compose up -d --build   # http://localhost:3000, dados no volume crm-data
 
 | Variável                | Padrão              | Descrição                                   |
 | ----------------------- | ------------------- | ------------------------------------------- |
-| `JWT_SECRET`            | gerada automaticamente | Chave das sessões (salva em `data/.session-secret` se não definida) |
-| `CRM_DATA_DIR`          | `./data`            | Pasta do banco de dados (`crm.json`)        |
+| `DATABASE_URL`          | —                   | PostgreSQL (obrigatório na Vercel). Sem ela, usa arquivo local |
+| `JWT_SECRET`            | gerada automaticamente | Chave das sessões (salva no banco se não definida) |
+| `CRM_DATA_DIR`          | `./data`            | Pasta do banco em arquivo (`crm.json`)      |
 | `NEXT_PUBLIC_TIME_ZONE` | `America/Sao_Paulo` | Fuso horário da empresa                     |
 
 > O check-in por GPS exige HTTPS em produção (exigência dos navegadores para geolocalização).
 
 ## Stack
 
-Next.js 16 (App Router, Server Actions) · TypeScript · Tailwind CSS v4 · banco em arquivo
-JSON com fila de escrita · login com bcrypt + JWT em cookie `httpOnly`.
-Para muitos usuários simultâneos, o módulo `src/lib/db.ts` pode ser trocado por PostgreSQL
-sem alterar as telas.
+Next.js 16 (App Router, Server Actions) · TypeScript · Tailwind CSS v4 · PostgreSQL
+(com transações e bloqueio de linha) ou arquivo JSON local · login com bcrypt + JWT em
+cookie `httpOnly`.
