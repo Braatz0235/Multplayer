@@ -68,3 +68,10 @@ npm run start
 
 Em produção, defina a variável de ambiente `JWT_SECRET` com um valor
 aleatório e secreto (veja `.env.local` para o formato).
+
+---
+
+## Outros projetos neste repositório
+
+- [`clean-limpeza-crm/`](clean-limpeza-crm/README.md) — CRM de agendamento e acompanhamento
+  de visitas comerciais da Clean Limpeza (app Next.js independente).
