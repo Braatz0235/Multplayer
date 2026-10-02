@@ -51,18 +51,20 @@ clientes e visitas de exemplo (os usuários de teste usam a mesma senha que voc�
 | Funcionário  | bianca@cleanlimpeza.com.br      |
 | Funcionário  | diego@cleanlimpeza.com.br       |
 
-Produção:
+## Colocar no ar
+
+Veja o passo a passo em **[DEPLOY.md](DEPLOY.md)** (Render, Railway, VPS com Docker).
+Resumo com Docker:
 
 ```bash
-npm run build
-JWT_SECRET="uma-chave-longa-e-secreta" npm start
+docker compose up -d --build   # http://localhost:3000, dados no volume crm-data
 ```
 
 ### Variáveis de ambiente
 
 | Variável                | Padrão              | Descrição                                   |
 | ----------------------- | ------------------- | ------------------------------------------- |
-| `JWT_SECRET`            | (inseguro, dev)     | **Obrigatório em produção** — assina a sessão |
+| `JWT_SECRET`            | gerada automaticamente | Chave das sessões (salva em `data/.session-secret` se não definida) |
 | `CRM_DATA_DIR`          | `./data`            | Pasta do banco de dados (`crm.json`)        |
 | `NEXT_PUBLIC_TIME_ZONE` | `America/Sao_Paulo` | Fuso horário da empresa                     |
 

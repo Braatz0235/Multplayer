@@ -1,0 +1,27 @@
+name: Clean Limpeza CRM
+
+on:
+  push:
+    paths: ["clean-limpeza-crm/**", ".github/workflows/clean-limpeza-crm.yml"]
+  pull_request:
+    paths: ["clean-limpeza-crm/**", ".github/workflows/clean-limpeza-crm.yml"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: clean-limpeza-crm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: clean-limpeza-crm/package-lock.json
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run lint
+      - run: npm run build
+      - name: Docker image builds
+        run: docker build -t clean-limpeza-crm .

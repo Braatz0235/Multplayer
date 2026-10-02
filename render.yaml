@@ -1,0 +1,17 @@
+# Deploy no Render.com (Blueprint): New + > Blueprint > selecione este repositório.
+services:
+  - type: web
+    name: clean-limpeza-crm
+    runtime: docker
+    rootDir: clean-limpeza-crm
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    region: ohio
+    healthCheckPath: /login
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+    disk:
+      name: crm-data
+      mountPath: /app/data
+      sizeGB: 1
